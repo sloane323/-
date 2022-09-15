@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<script>
+    //명시적 함수를 선언
+
+    function hi() {
+        document.write("hello");
+    }
+</script>
+
+</head>
+<body>
+    <script>
+// 함수 function 
+// 함수를 선언하는 방법
+
+function count(num) {
+    // 매개변수를 통해서 값을 가지고 올수있다 
+    for (let i = 1; i<= num ; i ++) {
+        document.write(i);
+    }
+    //값을 내보낼수 있다. 
+     return num;
+}
+// 함수 호출 방법 
+count (10);
+//함수의 리턴값 콘솔에 출력하기 
+console.log( count(3)) ;
+let returnNum = count (5);
+
+
+    </script>
+
+</body>
+</html>

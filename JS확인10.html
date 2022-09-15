@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ch03_함수확인</title>
+    <script>
+
+   // 명시적 함수를 선언
+   function hi() {
+            document.write("hi");
+        }
+        // 명시적 함수 - 매개변수 있음
+        function introName(name) {
+            document.write(`<h1>안녕하세요. ${name}입니다. 반갑습니다</h1>`)
+        }
+        // 명시적 함수 - 매개변수 있음, 리턴있음
+        function introNameReturn(name) {
+            return `안녕하세요 ${name}입니다. 반갑습니다`;
+        }
+        // 명시적 함수 - 매개변수/실행내용/리턴 있음
+        function introNameReturnLog(name) {
+            console.log("함수가 출력되었습니다");
+            return `안녕하세요 ${name}입니다. 반갑습니다`
+        } 
+        // 명시적 함수 > Math.random() >  리턴을 통해서 랜덤값 넘겨줌
+        function area(num1, num2) {
+            let a = num1*num2; // 사각형의 넓이를 구함
+            return a; // 구한 값을 리턴
+        }
+        // 명시적 함수 - 매개변수가 배열인 함수
+        function avrg(array) {
+            // array가 배열이 아니라면 0값을 return 하기
+            if ( !Array.isArray(array) ) {
+                return 0;
+                // return 사용하면 함수가 종료
+                // 아래에 들어가 있는 명령(함수)는 실행되지않는다
+                document.write("함수종료");
+            }
+            //  배열의 모든 값을 더하고 평균값 구하기
+            let sum = 0;
+            let avg = 0;
+            let count = 0;
+            for ( number of array) {
+                count++;
+                sum += number;
+            }
+            avg = sum/array.length;
+            return avg;
+        }
+        // 동일한 이름의 함수가 있을때 매개변수가 많은 함수만 출력된다
+        // 이름이 겹치지 않게 주의
+        function introName(name, adress) {
+            document.write(`${name}입니다. ${adress}에 살고있습니다`);
+        }
+        // 명시적 함수 - 두 수를 더하는 함수
+        // 매개변수에 기본값을 할당해서 사용할수 있다 (값이 들어오면 그 값으로 대체)
+        function add (num1=0, num2=0) {
+            let sum = num1 + num2;
+            return sum;
+        }
+        // 나머지 매개변수 : 배열형태로 들어옴
+        function allString(...words) {  
+            for (word of words) {
+                document.write(word)
+            }
+            return words
+        }
+        // arguments 객체 - 기본값이나 나머지 매개변수를 사용하지않을때 사용
+        function argument(a) {
+            document.write(`<p>${a}</p>`);
+            document.write(`<h3>${arguments[0]}</h3>`);
+            for (arg of arguments) {
+                document.write(`<li>${arg}</li>`);
+            }
+        }
+        // agrument를 통해서 받은 숫자값 다 더하는 함수
+        function addAllArg() {
+            let sum = 0;
+            for (arg of arguments) {
+                sum += arg;
+            }
+            return sum;
+        }
+        // 나머지 매개변수를 통해서 모든 수 다 더하기
+        function addAllRest(...nums) {
+            let sum = 0;
+            for (num of nums) {
+                sum += num;
+            }
+            return sum;
+        }
+
+
+    </script>
+</head>
+<body>
+<script> 
+
+     // 함수의 return 값을 사용하기 위해서, 변수에 할당하거나 값을 출력
+     document.write( introNameReturn("성춘향") );
+        document.write( introNameReturnLog("홍길동") );
+        document.write( area(50,10) );
+
+        // 인수값으로 배열만들어 넣기
+        let numArray = [30, 60, 40, 60, 20]
+        document.write( avrg(numArray) )
+
+        // 함수의 기본 원칙
+        // 초과된 인수는 무시 > 오류가 나지않는다.
+      
+        // 부족한 인수는 undefined > 오류가 나지않습니다.
+        introName();
+        // 배열과 같은 인수를 넣지 않았을경우 type에러가 날수 있다.
+        avrg();
+
+        document.write( add(5) )
+
+        argument("hi");
+
+    // 화살표 함수 : 함수표현식을 간단히 작성 하는 방법
+    // function 대신 => 을 사용한다 
+
+    // 1 매개변수가 없고 return 이 없는 함수 
+
+    let arrowNoVar = () => {
+        document.write("매개변수와 return이 없다.")}; 
+        arrowNoVar();
+
+    // 2 매개변수가 1개 있고, Return 이 없는 함수 
+    let arrowOneVar = a => {document.write(`<p>${a}</p>`)};
+    arrowOneVar("매개변수가 하나가 있다.")
+
+    // 3 매개변수가 2개 이상이고, retrun 이 없는 함수 
+    let arrowMoreVar = (a,b,c) => {document.write(a,b,c)};
+    arrowMoreVar(1,2,3)
+
+    // 4 실행 명령어 없이 return 값을 줄때 (한줄)
+    // => 화살표 뒤에 블록 (중괄호) 없이 표현식을 적어주면 그 내용은 return 값이 된다. 
+
+    let arrowReturn = (a,b) => a+b;
+    document.write(arrowReturn(1,2))
+
+    // 5 중괄호를 이용하여 여러줄로 줄력한 후 return 
+    // return 을 직접 적어서 사용 
+    let arrowMutiReturn = (a,b) => {
+        let sum = a+b;
+        return sum;
+    }
+    document.write(arrowMutiReturn(3,5))
+
+    </script>
+</body>
+</html>
