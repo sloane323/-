@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id = "title"> 노자 도덕경 원문해석 </h1>
+    <label for="">누가 너를 모욕하더라도 앙갚음하려 들지 마라 <br>
+    강가에 앉아 있노라면 머지 않아 그의 시체가 떠내려가는 것을 보게 되리라 <br>
+    -노자老子- </label><br><hr>
+    <input type="text" id="name" placeholder="당신의 이름을 입력하세요">
+    <button id="button">노자읽기</button>
+    <p id="count"></p>
+
+<script>
+    
+      // 확인버튼을 눌렀을 때, input의 id:name값을 받아와서
+        // h1태그에 '000님 반갑습니다'로 출력되도록 하기
+        // +버튼을 누를 때마다 count 1씩 올려서 입장 횟수 출력하기
+const button = document.querySelector("#button"); 
+button.addEventListener('click', hello);
+
+        // 함수 내부가 아니라 전역변수로 두어서 접근. 이미 있는 값에 접근하여 변경되도록 
+let numCount = 0; 
+
+function hello() {
+const name = document.querySelector("#name");
+const h1Tag = document.querySelector("#title");
+const count = document.querySelector("#count");
+
+// input 값을 가져와 title에 넣기 
+h1Tag.innerHTML = name.value+`님, 어서오세요`;
+
+// count 값을 1씩 증가시키기 
+numCount++;
+count.innerHTML = `${numCount}회 입장했습니다`;
+
+}
+
+</script>
+
+
+</body>
+</html>

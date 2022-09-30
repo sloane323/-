@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+function funcFor (n) {
+    // n이 0보다 클때 자기 자신을 반복 
+    if (n>0) {
+        //n이 반복되지 않도록 1씩 줄임 
+        funcFor(n-1)
+    }
+    else {
+        // n이 0일때 종료 
+        return 0; 
+    }
+    document.write("💙반복합니다💜 <br>");
+}
+
+funcFor(2)
+
+// n~1 까지의 수를 더하는 제귀 함수 
+
+function funcSum(n) {
+    if (n>0) {
+        // 값을 더해줘야함 
+        return funcSum(n-1) +n; 
+    } else {
+        //값을 리턴
+        return 0;
+    }
+}
+
+document.write(funcSum(3));
+document.write("<br>");
+
+// 재귀함수 - 팩토리얼 
+
+function fact(n) {
+    if (n==1) {
+        return 1;
+    }
+    else {
+        return fact (n-1)*n
+    }
+}
+
+document.write(fact(1));
+document.write(fact(5));
+
+// 콜백함수 : 인수로 넘겨주는 함수 
+function callback () {
+    document.write("<p>콜백 함수입니다.</p>")
+}
+// 함수 인수로 넣어줄때 함수이름만 사용  / 익명함수 
+    setInterval(callback,1000); 
+
+    setInterval (function() {
+        document.write("<p>익명함수로 만든 콜백함수입니다. </p>")
+    }, 1500);
+
+    // setInterval 을 사용하여 화살표 함수로 만든 콜백 함수입니다. 를
+    // 3초마다 출력하는 코드를 작성하세요 
+
+    setInterval(
+        ()=>document.write("<p>화살표 함수로 만든 콜백함수입니다.</p>"),
+        3000
+    );
+
+    </script>
+</body>
+</html>

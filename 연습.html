@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+    function power (x,y) {
+        // 매개변수가 1일때 그 수를 2제곱한다 
+> 삽입안됨 
+
+
+        // 매개변수가 2개 일때 
+        // x를 y제곱을 한다. 
+        let result = 1;
+        for (let i=0; i<y; i++) {
+            result *=x;
+        } return result;
+    }; 
+    
+
+
+    // 매개변수의 갯수마다 다른값 return 하기 
+
+    function meetAt (year, month, date) { 
+        if (date != undefined) {
+            return `${year}/${month}/${date}`;
+             // 값이 3개일때 
+        } else if ( month == undefined){
+            return year+'년'; // 값이 1개일때 
+        }
+        else // 값이 2개일때 
+        return `${year}년 ${month}월`;
+    }
+ 
+function meetAtArg (year,month,date) {// 2. argument 이용하는 방법  
+    let argCount = arguments.length;
+    switch(argCount) {
+        case 1:
+            return year+년;
+        case 2:
+            return `${year}년 ${month}월`;
+        case 3:
+            return `${year}/${month}/${date}`;
+    }
+
+}
+
+
+    </script>
+</body>
+</html>

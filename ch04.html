@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+        let memo = {
+            title : "오늘할일", 
+            todo : {
+                morning : ["청소","준비"], 
+                afternoon : ["수업"], 
+                evening : ["정리" , "독서"]
+            }
+        }; 
+
+
+
+
+// 동물병원 진료차트
+// 생성자 함수 
+
+function AnimalChart(name,kind,age) {
+this. name = name;
+this.kind = kind;
+this.age=age;
+this.sickness=0;
+this.condition=0;
+
+this.receive = function (sickness, condition) {
+    this.sickness=sickness;
+    this.condition=condition;
+}
+this.confirm = function () {
+  let s = ""
+  for (let x in this) {
+    // 함수부분은 제외하기 위함 
+    if (typeof this[x] == "function") { 
+continue;
+    }
+    s+=this[x];
+  }
+  return s;   
+}
+}
+
+
+let first = new AnimalChart ("홍길동","강아지","1");
+first.receive("감기","나쁨"); 
+first.confirm()
+
+
+let count = 0;
+let charts = [];
+charts[count] = new AnimalChart ("성충향","여우",5)
+count++;
+
+    </script>
+    
+</body>
+</html>
